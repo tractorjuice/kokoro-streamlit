@@ -1,25 +1,49 @@
 # Text-to-Speech Voice Generator
 
-A Streamlit application for generating text-to-speech audio using multiple AI voices with voice combination capabilities.
+A Streamlit application for generating text-to-speech audio using Kokoro-82M, a state-of-the-art TTS model that outperforms much larger models while using only 82 million parameters.
+
+## About Kokoro TTS
+Kokoro-82M is a highly efficient text-to-speech model that achieves exceptional quality with only 82M parameters, outperforming models 14x larger. The model supports:
+- Multiple voice generation
+- Voice mixing/combination
+- High-quality speech synthesis
+
+### Important Links
+- **Try it out**: [Kokoro TTS Demo](https://huggingface.co/spaces/hexgrad/Kokoro-TTS)
+- **Model**: [Kokoro-82M on Hugging Face](https://huggingface.co/hexgrad/Kokoro-82M)
+- **Development**:
+  - [Kokoro Inference Library](https://github.com/hexgrad/kokoro)
+  - [Kokoro FastAPI](https://github.com/remsky/Kokoro-FastAPI)
+- **Community**: [Discord Server](https://discord.gg/QuGxSWBfQy) (access to videos, example projects, etc.)
+
+# Text-to-Speech Voice Generator
+
+[Previous sections remain the same...]
 
 ## Requirements
 - Python 3.8+
 - Streamlit
 - OpenAI Python client
-- [Kokoro FastAPI](https://github.com/remsky/Kokoro-FastAPI) running locally or on a server
+- Docker
+- Kokoro FastAPI Docker container
 
 ## Installation
+
+### 1. Setup Streamlit App
 ```bash
-# Install Python dependencies
 pip install streamlit openai
+```
 
-# Clone and setup Kokoro FastAPI
-git clone https://github.com/remsky/Kokoro-FastAPI.git
-cd Kokoro-FastAPI
-pip install -r requirements.txt
+### 2. Start Kokoro FastAPI Server
+```bash
+# Pull and run the Docker container
+docker pull remsky/kokoro-fastapi:latest
+docker run -p 8880:8880 remsky/kokoro-fastapi:latest
+```
 
-# Run Kokoro FastAPI server (in a separate terminal)
-python main.py
+### 3. Run the App
+```bash
+streamlit run app.py
 ```
 
 ## Usage
