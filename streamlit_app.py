@@ -6,7 +6,7 @@ from tempfile import NamedTemporaryFile
 
 @st.cache_resource
 def get_client():
-    return OpenAI(base_url="http://api.mcc.uk/v1", api_key="not-needed")
+    return OpenAI(base_url="http://localhost:8880/v1", api_key="not-needed")
 
 def toggle_voice(voice):
     if voice not in st.session_state.selected_voices:
