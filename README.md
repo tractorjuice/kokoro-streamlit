@@ -2,6 +2,33 @@
 
 A Streamlit application for generating text-to-speech audio using multiple AI voices with voice combination capabilities.
 
+## Requirements
+- Python 3.8+
+- Streamlit
+- OpenAI Python client
+- [Kokoro FastAPI](https://github.com/remsky/Kokoro-FastAPI) running locally or on a server
+
+## Installation
+```bash
+# Install Python dependencies
+pip install streamlit openai
+
+# Clone and setup Kokoro FastAPI
+git clone https://github.com/remsky/Kokoro-FastAPI.git
+cd Kokoro-FastAPI
+pip install -r requirements.txt
+
+# Run Kokoro FastAPI server (in a separate terminal)
+python main.py
+```
+
+## Usage
+1. Start Kokoro FastAPI server
+2. Run the Streamlit app:
+```bash
+streamlit run app.py
+```
+
 ## Features
 - Text-to-speech conversion with multiple voice options
 - Voice combination support (mix two or more voices)
@@ -9,22 +36,6 @@ A Streamlit application for generating text-to-speech audio using multiple AI vo
 - MP3 download option
 - Generation time tracking
 - Interactive voice selection interface
-
-## Installation
-```bash
-pip install streamlit openai
-```
-
-## Usage
-1. Run the app:
-```bash
-streamlit run app.py
-```
-
-2. Enter text in the input area
-3. Select one or more voices using the toggle buttons
-4. Click "Generate Speech" to create audio
-5. Use the audio player or download button to access the generated speech
 
 ## Available Voices
 - af (Default 50-50 mix of Bella & Sarah)
@@ -40,7 +51,7 @@ streamlit run app.py
 - af_sky
 
 ## API Configuration
-The app uses a custom OpenAI-compatible API endpoint. Update the `base_url` in the code to match your API endpoint:
+The app uses Kokoro FastAPI endpoint. Update the `base_url` in the code to match your endpoint:
 ```python
-base_url="http://api.mcc.uk/v1"
+base_url="http://localhost:8880/v1"
 ```
