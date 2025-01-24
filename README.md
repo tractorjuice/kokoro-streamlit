@@ -16,10 +16,6 @@ Kokoro-82M is a highly efficient text-to-speech model that achieves exceptional 
   - [Kokoro FastAPI](https://github.com/remsky/Kokoro-FastAPI)
 - **Community**: [Discord Server](https://discord.gg/QuGxSWBfQy) (access to videos, example projects, etc.)
 
-# Text-to-Speech Voice Generator
-
-[Previous sections remain the same...]
-
 ## Requirements
 - Python 3.8+
 - Streamlit
@@ -43,14 +39,7 @@ docker run -p 8880:8880 remsky/kokoro-fastapi:latest
 
 ### 3. Run the App
 ```bash
-streamlit run app.py
-```
-
-## Usage
-1. Start Kokoro FastAPI server
-2. Run the Streamlit app:
-```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 ## Features
@@ -77,5 +66,5 @@ streamlit run app.py
 ## API Configuration
 The app uses Kokoro FastAPI endpoint. Update the `base_url` in the code to match your endpoint:
 ```python
-base_url="http://localhost:8880/v1"
+base_url="http://localhost:8880/v1"  # Default local Docker endpoint would be http://localhost:8880/v1
 ```
